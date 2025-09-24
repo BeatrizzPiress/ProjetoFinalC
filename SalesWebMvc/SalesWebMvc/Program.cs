@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.WebEncoders.Testing;
 using SalesWebMvc.Data;
+
 namespace SalesWebMvc
 {
     public class Program
@@ -11,19 +13,30 @@ namespace SalesWebMvc
                 options.UseMySQL(builder.Configuration.GetConnectionString("SalesWebMvcContext"), builder => builder.MigrationsAssembly("SalesWebMvc")));
             //Injeção de dependência
 
+            builder.Services.AddScoped<SeedingService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
+            // AlimentarBAncoDeDados the HTTP request pipeline.
+
+            if (app.Environment.IsDevelopment())
+            {
+                AlimentarBancoDeDados(app.Services);
+            }
+            else
             {
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+
+
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -37,6 +50,14 @@ namespace SalesWebMvc
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
+        }
+
+        public static void AlimentarBancoDeDados(IServiceProvider services)
+        {
+            using var scope = services.CreateScope();
+            var seeding = scope.ServiceProvider.GetRequiredService<SeedingService>();
+            seeding.Seed();
+            // scope.Dispose();
         }
     }
 }
