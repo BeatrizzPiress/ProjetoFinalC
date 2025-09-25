@@ -28,11 +28,11 @@ namespace SalesWebMvc.Data
             Department d4 = new Department { Id = 4, Name = "Books" };
 
             Seller s1 = new Seller { Id = 1, Name = "Bob Brown", Email = "bobbrown@gmail.com", BirthDate = new DateTime(1994, 4, 21), BaseSalary = 1000.0, Department = d1 };
-            Seller s2 = new Seller { Id = 2, Name = "Maria Green", Email = "mariagreen@gmail.com", BirthDate = new DateTime(1972,1 , 03), BaseSalary = 1000.0, Department = d1 };
-            Seller s3 = new Seller { Id = 3, Name = "Alex Grey", Email = "alexgrey@gmail.com", BirthDate = new DateTime(1990, 2, 9), BaseSalary = 2000.0, Department = d1 };
+            Seller s2 = new Seller { Id = 2, Name = "Maria Green", Email = "mariagreen@gmail.com", BirthDate = new DateTime(1972,1 , 03), BaseSalary = 1000.0, Department = d2 };
+            Seller s3 = new Seller { Id = 3, Name = "Alex Grey", Email = "alexgrey@gmail.com", BirthDate = new DateTime(1990, 2, 9), BaseSalary = 2000.0, Department = d3 };
             Seller s4 = new Seller { Id = 4, Name = "Martha Red", Email = "marthared@gmail.com", BirthDate = new DateTime(2002, 8, 15), BaseSalary = 4000.0, Department = d1 };
-            Seller s5 = new Seller { Id = 5, Name = "Donald Blue", Email = "donaldblue@gmail.com", BirthDate = new DateTime(1987, 7, 2), BaseSalary = 2000.0, Department = d1 };
-            Seller s6 = new Seller { Id = 6, Name = "Alex Pink", Email = "alexpink@gmail.com", BirthDate = new DateTime(1990, 9, 28), BaseSalary = 3000.0, Department = d1 };
+            Seller s5 = new Seller { Id = 5, Name = "Donald Blue", Email = "donaldblue@gmail.com", BirthDate = new DateTime(1987, 7, 2), BaseSalary = 2000.0, Department = d2 };
+            Seller s6 = new Seller { Id = 6, Name = "Alex Pink", Email = "alexpink@gmail.com", BirthDate = new DateTime(1990, 9, 28), BaseSalary = 3000.0, Department = d4 };
 
             SalesRecord r1 = new SalesRecord { Id = 1, Date = new DateTime(2018, 09, 25), Amount = 11000.0, Status = SaleStatus.Billed, Seller = s1 };
             SalesRecord r2 = new SalesRecord { Id = 2, Date = new DateTime(2018, 09, 4), Amount = 7000.0, Status = SaleStatus.Billed, Seller = s5 };
