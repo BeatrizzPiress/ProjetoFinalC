@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.WebEncoders.Testing;
+using System.Globalization;
 using SalesWebMvc.Data;
 using SalesWebMvc.Models;
 using SalesWebMvc.Services;
@@ -22,8 +24,18 @@ namespace SalesWebMvc
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            var enUs = new CultureInfo("en-US");
+            var localizationOption = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en-US"),
+                SupportedCultures = new List<CultureInfo> { enUs },
+                SupportedUICultures = new List<CultureInfo> { enUs }
+            };
 
+          
             var app = builder.Build();
+
+            app.UseRequestLocalization(localizationOption);
 
             // AlimentarBAncoDeDados the HTTP request pipeline.
 
@@ -63,5 +75,7 @@ namespace SalesWebMvc
             seeding.Seed();
             // scope.Dispose();
         }
+
+       
     }
 }
