@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.WebEncoders.Testing;
 using SalesWebMvc.Data;
+using SalesWebMvc.Models;
 using SalesWebMvc.Services;
 
 namespace SalesWebMvc
@@ -15,7 +16,8 @@ namespace SalesWebMvc
             //Injeção de dependência
 
             builder.Services.AddScoped<SeedingService>();
-            builder.Services.AddScoped<SellerService>();    
+            builder.Services.AddScoped<SellerService>();
+            builder.Services.AddScoped<DepartmentService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
