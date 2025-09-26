@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Sales Records";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <form asp-action="SimpleSearch">
+            <fieldset class="border p-3 rounded-2">
+                <legend class="float-none w-auto px-2">Simple search</legend>
+
+                <div class="mb-3 row">
+                    <label for="minDate" class="col-sm-3 col-form-label">Min Date</label>
+                    <div class="col-sm-9">
+                        <input type="date" name="minDate" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="maxDate" class="col-sm-3 col-form-label">Max Date</label>
+                    <div class="col-sm-9">
+                        <input type="date" name="maxDate" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="GroupingSearch">
+            <fieldset class="border p-3 rounded-2">
+                <legend class="float-none w-auto px-2">Grouping search</legend>
+
+                <div class="mb-3 row">
+                    <label for="minDate" class="col-sm-3 col-form-label">Min Date</label>
+                    <div class="col-sm-9">
+                        <input type="date" name="minDate" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="maxDate" class="col-sm-3 col-form-label">Max Date</label>
+                    <div class="col-sm-9">
+                        <input type="date" name="maxDate" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
