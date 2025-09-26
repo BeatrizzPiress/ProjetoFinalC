@@ -14,7 +14,7 @@
 <div class="row">
    <div class="col-md-4">
        <form asp-action="Create">
-           <div asp-validation-summary="All" class="text-bg-danger"></div>
+            <div asp-validation-summary="All" class="text-bg-danger"></div>
            <div class="mb-3">
                <label asp-for="Seller.Name" class="form-label"></label>
                <input asp-for="Seller.Name" class="form-control" />
@@ -39,6 +39,7 @@
             <div class="mb-3">
                 <label asp-for="Seller.DepartmentId" class="control-label"></label>
                 <select asp-for="Seller.DepartmentId" asp-items="@(new SelectList(Model.Departments, "Id", "Name"))" class="form-control"></select>
+                
             </div>
             <div class="mb-3">
                 <input type="submit" value="Create" class="btn btn-success" />
